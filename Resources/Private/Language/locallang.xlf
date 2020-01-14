@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+  <file source-language="en" datatype="plaintext" original="messages" date="2019-11-30T18:10:18Z"
+        product-name="em_sys_note">
+    <header/>
+    <body>
+      <trans-unit id="category.1" resname="category.1">
+        <source>Instruction</source>
+      </trans-unit>
+      <trans-unit id="category.2" resname="category.2">
+        <source>Template</source>
+      </trans-unit>
+      <trans-unit id="category.3" resname="category.3">
+        <source>Note</source>
+      </trans-unit>
+      <trans-unit id="category.4" resname="category.4">
+        <source>To-do</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
