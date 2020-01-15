@@ -1,0 +1,15 @@
+parameters:
+	ignoreErrors:
+		-
+		    # calls a magic getter, can be ignored for now
+			message: '#Access to protected property [a-zA-Z0-9\\_]+::\$buttonBar\.#'
+			path: Classes/Hooks/PageLayoutHeader.php
+		-
+			message: '#Right side of || is always false.#'
+			path: ext_localconf.php
+		-
+			message: '#Property .* does not accept object\.#'
+			path: Classes/Factory/ButtonFactory.php
+		-
+			message: '#Property .* does not accept object\.#'
+			path: Classes/Hooks/PageLayoutHeader.php
