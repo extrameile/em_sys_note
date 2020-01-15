@@ -59,7 +59,7 @@ class SplitButton extends \TYPO3\CMS\Backend\Template\Components\Buttons\SplitBu
      *
      * @return string
      */
-    public function render()
+    public function render(): string
     {
         $items = $this->getButton();
         $attributes = [
@@ -96,7 +96,11 @@ class SplitButton extends \TYPO3\CMS\Backend\Template\Components\Buttons\SplitBu
         return $content;
     }
 
-    private function renderOptions($options)
+    /**
+     * @param \TYPO3\CMS\Backend\Template\Components\Buttons\LinkButton[] $options
+     * @return string
+     */
+    private function renderOptions(array $options): string
     {
         $content = '';
 

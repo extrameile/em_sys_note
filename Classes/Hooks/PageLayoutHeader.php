@@ -19,21 +19,20 @@ class PageLayoutHeader
      * @var int $pageId
      */
     protected $pageId;
+
     /**
-     * @var \Extrameile\EmSysNote\Factory\ButtonFactory|object|null
+     * @var \Extrameile\EmSysNote\Factory\ButtonFactory
      */
     private $buttonFactory;
 
-    public function __construct(
-        ?ButtonFactory $buttonFactory = null
-    ) {
+    public function __construct(?ButtonFactory $buttonFactory = null)
+    {
         $this->pageId = (int)$GLOBALS['_GET']['id'];
-
         $this->buttonFactory = $buttonFactory ?? GeneralUtility::makeInstance(ButtonFactory::class);
     }
 
     /**
-     * @param array $parameters
+     * @param mixed[] $parameters
      * @param \TYPO3\CMS\Backend\Controller\PageLayoutController $pageLayoutController
      * @return string
      * @noinspection PhpUnusedParameterInspection
@@ -48,6 +47,7 @@ class PageLayoutHeader
         /** @var \TYPO3\CMS\Backend\Template\Components\ButtonBar $buttonBar */
         $buttonBar = $pageLayoutController->buttonBar;
 
+        /** @var \Extrameile\EmSysNote\Template\Components\Buttons\SplitButton $splitButton */
         $splitButton = GeneralUtility::makeInstance(SplitButton::class);
 
         $splitButton->addItem($this->buttonFactory->getButton(static::TABLE, $this->pageId, SysNote::SYS_NOTE_TYPE_NOTE), true);
@@ -55,7 +55,10 @@ class PageLayoutHeader
         $splitButton->addItem($this->buttonFactory->getButton(static::TABLE, $this->pageId, SysNote::SYS_NOTE_TYPE_TEMPLATE));
         $splitButton->addItem($this->buttonFactory->getButton(static::TABLE, $this->pageId, SysNote::SYS_NOTE_TYPE_INSTRUCTION));
 
-        $buttonBar->addButton($splitButton, ButtonBar::BUTTON_POSITION_RIGHT, 'note');
+        $buttonBar->addButton($splitButton, ButtonBar::BUTTON_POSITION_RIGHT, 5);
+
+        // nothing to add, we only need the hook in place
+        return '';
     }
 
 

@@ -14,11 +14,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ButtonFactory
 {
     /**
-     * @var \TYPO3\CMS\Core\Imaging\IconFactory|null
+     * @var \TYPO3\CMS\Core\Imaging\IconFactory
      */
     private $iconFactory;
     /**
-     * @var \TYPO3\CMS\Backend\Routing\UriBuilder|null
+     * @var \TYPO3\CMS\Backend\Routing\UriBuilder
      */
     private $uriBuilder;
 
@@ -28,18 +28,19 @@ class ButtonFactory
         $this->uriBuilder = $uriBuilder ?? GeneralUtility::makeInstance(UriBuilder::class);
     }
 
-    public function getButton(string $table, int $pageId, int $noteCategory = SysNote::SYS_NOTE_TYPE_DEFAULT)
+    public function getButton(string $table, int $pageId, int $noteCategory = SysNote::SYS_NOTE_TYPE_DEFAULT): LinkButton
     {
-
         $icon = $this->iconFactory->getIcon('sysnote-type-' . $noteCategory, Icon::SIZE_SMALL);
         $link = $this->getLink($table, $pageId, $noteCategory);
         $type = $this->getLanguageService()->sL('LLL:EXT:em_sys_note/Resources/Private/Language/locallang.xlf:category.' . $noteCategory);
 
-        return GeneralUtility::makeInstance(LinkButton::class)
+        /** @var \TYPO3\CMS\Backend\Template\Components\Buttons\LinkButton $linkButton */
+        $linkButton = GeneralUtility::makeInstance(LinkButton::class);
+        return $linkButton
             ->setIcon($icon)
             ->setHref($link)
             ->setTitle('Create ' . $type)
-            ->setShowLabelText('Create ' . $type);
+            ->setShowLabelText(true);
     }
 
     private function getLink(string $table, int $pageId, int $noteCategory = SysNote::SYS_NOTE_TYPE_DEFAULT): string
