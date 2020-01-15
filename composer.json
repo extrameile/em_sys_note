@@ -44,6 +44,7 @@
         }
     },
     "require-dev": {
-        "extrameile/grumphp-conventions-typo3": "dev-master"
+        "extrameile/grumphp-conventions-typo3": "dev-master",
+        "vimeo/psalm": "^3.8"
     }
 }
