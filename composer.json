@@ -10,8 +10,7 @@
     ],
     "require": {
         "typo3/cms-core": "^9.5",
-        "typo3/cms-sys-note": "^9.5",
-        "typo3/testing-framework": "4"
+        "typo3/cms-sys-note": "^9.5"
     },
     "autoload": {
         "psr-4": {
@@ -44,6 +43,7 @@
         }
     },
     "require-dev": {
+        "typo3/testing-framework": "4",
         "extrameile/grumphp-conventions-typo3": "dev-master",
         "vimeo/psalm": "^3.8"
     }
