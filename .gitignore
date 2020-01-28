@@ -1,3 +1,10 @@
 .Build
 composer.lock
 Repository
+
+# Ignore IDE files
+*.idea
+*.iml
+nbproject
+*.swp
+*.kdev4
