@@ -31,7 +31,6 @@
         }
     },
     "replace": {
-        "extrameile/em-sys-note": "self.version",
         "typo3-ter/em-sys-note": "self.version"
     },
     "config": {
